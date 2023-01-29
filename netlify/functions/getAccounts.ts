@@ -26,10 +26,7 @@ const handler: Handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        body: "ciao"
-
-
-            /*JSON.stringify(allAccounts.map(account => (
+        body: JSON.stringify(allAccounts.map(account => (
                 // flatten player name into score entry
                 { id: account.id, name: account.betting_site.description, code: account.person.code, balance: account.balance }
             ))
@@ -39,7 +36,7 @@ const handler: Handler = async (event, context) => {
                 typeof value === 'bigint'
                     ? value.toString()
                     : value
-        )*/
+        )
     }
 };
 
