@@ -23,8 +23,9 @@ export default function Home() {
     const [accounts, setAccounts] = useState([] as Account[]);
 
     useEffect(() => {
-        fetch("/.netlify/functions/getAccounts")
-            .then(response => console.log(response));
+        fetch('/.netlify/functions/getAccounts')
+            .then(response => response.json() as Promise<Account[]>)
+            .then(data => setAccounts(data));
     }, []);
 
     return <>
